@@ -1,0 +1,17 @@
+{
+  "name": "simple-tab-expansion",
+  "version": "0.1.0",
+  "description": "Converts between tabs and spaces using a set tab width and column positions.",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": "./src/index.js",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "dependencies": {}
+}
