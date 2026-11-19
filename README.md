@@ -33,3 +33,10 @@ The trade-off is that expansion is no longer a single string replacement; it is 
 Contraction is not a perfect inverse of expansion for arbitrary input. A run of spaces is only turned into a tab when it reaches the next tab stop exactly; a partial run such as two leading spaces at width 4 stays as spaces, because a tab would overshoot the original column. Expansion followed by contraction round-trips exactly, but contraction of hand-written text may leave some spaces in place. That is intentional: the alternative would silently move text to the right.
 
 Newlines are preserved verbatim, including `\r\n`, and tabs never cross a line boundary.
+
+## Design notes
+
+The window stores values eagerly rather than keeping running aggregates. Running
+sums drift with floating point over long streams, and recomputing from a small
+buffer is cheap enough that the drift is not worth the speed.
+
